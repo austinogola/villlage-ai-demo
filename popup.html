@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village AI</title>
+    <style>
+        .parent{
+            height:400px;
+            width:500px;
+            border:1px solid black;
+            overflow-y: scroll;
+            padding: 15px;
+        }
+        .title{
+            text-align: center;
+        }
+        .inputDiv{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .inputDiv input{
+            height:24px;
+        }
+        .inputDiv textarea{
+            height:50px;
+        }
+        .inputDiv input,.inputDiv textarea{
+            width: 100%;
+            border:1px solid black;
+        }
+        button{
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .errorLog{
+            color: red;
+            margin-top: 5px;
+            display: none;
+        }
+        #answer{
+            height: 50px;
+        }
+        label{
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .tabs{
+            margin-bottom: 30px;
+        }
+        .tabs span{
+            margin-right:20px;
+            font-size: 15px;
+            font-weight: 500;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+        .tabs span.active{
+            border-bottom:2px solid seagreen;
+        }
+        .tabContent{
+            display: none;
+        }
+        .tabContent.active{
+            display: block;
+        }
+        .tabContent#Guide{
+           
+        }
+        .tabContent#Guide h5{
+           font-size: 16px;
+        }
+        .tabContent#Guide span{
+           font-size: 16px;
+           font-weight: 500;
+        }
+        .tabContent#Guide p{
+           font-size: 15px;
+        }
+
+        .allScrapped{
+            height:320px;
+            padding: 10px;
+
+        }
+        .allScrapped div{
+            height:100px;
+            overflow-y: scroll;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="wrapper">
+            <h4 class="title">Village AI Demo</h4>
+            <div class="tabs">
+                <span class="active">Single</span>
+                <span>Multi</span>
+                <span>Scrapped</span>
+                <span>Guide</span>
+                
+            </div>
+            <form action="" id="Single" class="tabContent active">
+
+                <div class="inputDiv">
+                    <label for="profile">Profile(json)</label><br>
+                    <textarea name="profile" id="profile" required></textarea>
+
+                </div>
+                <div class="inputDiv">
+                    <label for="profile">queryType</label><br>
+                    <input type="text" name="queryType" id="queryType">
+                    <p class="errorLog">One of these fields must be provided!</p>
+                </div>
+                <div class="inputDiv">
+                    <label for="profile">question</label><br>
+                    <textarea name="question" id="question" ></textarea>
+                    <p class="errorLog">One of these fields must be provided!</p>
+                </div>
+
+                <button type="submit">Answer</button>
+
+                <div class="inputDiv">
+                    <textarea name="answer" id="answer" rows="10" readonly placeholder="returned answer here"></textarea>
+                </div>
+
+            </form>
+            <form action="" id="Multi" class="tabContent">
+
+                <div class="inputDiv">
+                    <label for="profiles">Profiles</label><br>
+                    1.<textarea name="profile" id="profile1" required></textarea>
+                    2.<textarea name="profile" id="profile2" required></textarea>
+
+                </div>
+                <div class="inputDiv">
+                    <label for="profile">queryType</label><br>
+                    <input type="text" name="queryType" id="queryType2">
+                    <p class="errorLog">One of these fields must be provided!</p>
+                </div>
+                <div class="inputDiv">
+                    <label for="profile">question</label><br>
+                    <textarea name="question" id="question2" ></textarea>
+                    <p class="errorLog">One of these fields must be provided!</p>
+                </div>
+
+                <button type="submit">Answer</button>
+
+                <div class="inputDiv">
+                    <textarea name="answer" id="answer2" rows="10" readonly placeholder="returned answer here"></textarea>
+                </div>
+
+            </form>
+            
+            <div id="Guide" class="tabContent">
+                <h5>Valid queryTypes</h5>
+                <p><span>single- </span>salary,age,personality,summary,career accomplishments,savings,draft email</p>
+                <p><span>multi- </span>compare,icebreakers,approach</p>
+            </div>
+            <div id="Scrapped" class="tabContent">
+                <h4>Recently scrapped profiles (last 3 in order)</h4>
+                <div class="allScrapped">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="popup.js"></script>
+</html>

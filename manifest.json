@@ -1,0 +1,28 @@
+{
+    "name": "Village Demo",
+    "description": "Demo of village ai",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "permissions":[
+      "tabs","storage","scripting","activeTab","cookies",
+      "webRequest","webNavigation"
+    ],
+    "host_permissions": ["<all_urls>"],
+    "web_accessible_resources": [{
+      "resources": ["icons/*","images/*"],
+      "matches": ["<all_urls>"]
+    }],
+    
+    "background": {
+    "service_worker": "background.js"
+    },
+    "action":{
+        "default_popup":"popup.html"
+    },
+    "content_scripts": [
+      {
+        "js": ["content.js"],
+        "matches": ["http://www.linkedin.com/in/*", "https://www.linkedin.com/in/*"]
+      }
+    ]
+  }
